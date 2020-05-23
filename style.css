@@ -98,10 +98,11 @@ header a {
   margin-top: 50px;
 }
 nav li {
-  display: inline-block;
+  display: inline;
   font-size: 150%;
   margin-right: 50px;
 }
+
 a:hover {
   color: rgba(0, 255, 0, 0.75);
 }
@@ -116,6 +117,88 @@ a:hover {
 }
 .navbar nav {
   margin-top: 20px;
+}
+.burger {
+  display: hidden;
+  padding: 10px;
+  margin-right: 100%;
+  width: 60px;
+}
+.burger div {
+  display: hidden;
+  width: 25px;
+  height: 2px;
+  margin: 5px;
+}
+.burger-container {
+  overflow: hidden;
+  position: fixed;
+  height: 6vh;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  z-index: 2;
+}
+@media screen and (max-width: 400px) {
+  body {
+    overflow-x: hidden;
+  }
+  .navbar {
+    left: 0px;
+    top: 6vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+    position: fixed;
+  }
+  .navbar ul {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  .navbar li {
+    opacity: 0;
+    display: block;
+  }
+  .burger-container {
+    background-color: #171717;
+    position: fixed;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+  .burger div {
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+}
+.nav-active {
+  transform: translateX(0%);
+}
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 5px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+.toggle2 .line1 {
+  background-color: red;
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
 }
 div .fa {
   padding: 10px;
@@ -151,30 +234,66 @@ div .fa-github {
 div .fa-spotify {
   background: #00b489;
 }
-div.typewriter p {
-  border-right: solid 3px rgba(0, 255, 0, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 100px;
+.typewriter p {
+  font-size: 8vw;
   color: white;
   margin: 0 auto;
-  animation: animated-text 2s steps(15, end) 1s 1 normal both,
-    animated-cursor 530ms steps(15, end) infinite;
+  text-align: center;
 }
-@keyframes animated-text {
-  from {
-    width: 0;
+@media screen and (min-width: 888px) {
+  .typewriter p {
+    border-right: solid 3px rgba(0, 255, 0, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 100px;
+    color: white;
+    margin: 0 auto;
+    animation: animated-text 2s steps(15, end) 1s 1 normal both,
+      animated-cursor 530ms steps(15, end) infinite;
   }
-  to {
-    width: 900px;
+  @keyframes animated-text {
+    from {
+      width: 0;
+    }
+    to {
+      width: 900px;
+    }
+  }
+  @keyframes animated-cursor {
+    from {
+      border-right-color: rgba(0, 255, 0, 0.749);
+    }
+    to {
+      border-right-color: transparent;
+    }
   }
 }
-@keyframes animated-cursor {
-  from {
-    border-right-color: rgba(0, 255, 0, 0.749);
+@media screen and (min-width: 888px) {
+  .typewriter p {
+    border-right: solid 3px rgba(0, 255, 0, 0.75);
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 100px;
+    color: white;
+    margin: 0 auto;
+    animation: animated-text 2s steps(15, end) 1s 1 normal both,
+      animated-cursor 530ms steps(15, end) infinite;
   }
-  to {
-    border-right-color: transparent;
+  @keyframes animated-text {
+    from {
+      width: 0;
+    }
+    to {
+      width: 900px;
+    }
+  }
+  @keyframes animated-cursor {
+    from {
+      border-right-color: rgba(0, 255, 0, 0.749);
+    }
+    to {
+      border-right-color: transparent;
+    }
   }
 }
 
@@ -202,7 +321,8 @@ body {
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
-  padding-top: 30vh;
+  bottom: 0;
+  margin-top: 5vh;
   display: inline-block;
 }
 .down-arrow .img-top {
@@ -304,7 +424,7 @@ u,
   padding: var(--space-lg) 0;
   color: black;
   background-color: grey;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 .header img {
   float: right;
@@ -315,11 +435,11 @@ u,
   position: relative;
 }
 .cd-timeline h2 {
-  font-weight: 700;
+  font-weight: 500;
 }
 .cd-timeline p {
-  font-size: 110%;
-}
+  font-size: 1.0em;
+} 
 .cd-timeline__container {
   position: relative;
   padding: 1.25em 0;
@@ -329,7 +449,7 @@ u,
   content: "";
   position: absolute;
   top: 0;
-  left: 18px;
+  left: 28px;
   height: 100%;
   width: 4px;
   background: white;
@@ -358,17 +478,25 @@ u,
   }
 }
 .cd-timeline__img {
+  display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  box-shadow: 0 0 0 4px hsl(0, 0%, 100%), inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px var(--color-white), inset 0 2px 0 rgba(0, 0, 0, 0.08),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline__img img {
-  width: 100%;
-  height: 100%;
+  width: 60px;
+  height: 60px;
 }
 @media (min-width: 64rem) {
   .cd-timeline__img {
@@ -390,7 +518,7 @@ u,
   margin-left: 1.25em;
   background: white;
   border-radius: 0.25em;
-  padding: 1.25em;
+  padding: 15px;
   box-shadow: 0 3px 0 white;
 }
 .cd-timeline__content::before {
@@ -404,19 +532,19 @@ u,
   border-right-color: white;
 }
 .bbs {
-  color: #CDA013;
+  color: #cda013;
 }
 .ted {
-  color: #E62B1E;
+  color: #e62b1e;
 }
 .tempus {
   color: black;
 }
 .adidas {
-  color: #0184D6;
+  color: #0184d6;
 }
 .reflexion {
-  color: #E2623D;
+  color: #e2623d;
 }
 @media (min-width: 64rem) {
   .cd-timeline__content {
@@ -425,7 +553,6 @@ u,
     flex-grow: 0;
     will-change: transform;
     margin: 0;
-    font-size: 0.8em;
     --line-height-multiplier: 1.2;
   }
   .cd-timeline__content::before {
@@ -555,6 +682,7 @@ u,
     transform: translateX(0);
   }
 }
+
 .spacingPage {
   padding-top: 5vh;
   background-color: grey;
@@ -615,15 +743,5 @@ projects page
 */
 .projects {
   background-color: lightseagreen;
-  height: 100vh;
-}
-
-/* 
----------------------------------------------
-contact + footer page
---------------------------------------------- 
-*/
-.contact {
-  background-color: lightcoral;
   height: 100vh;
 }
