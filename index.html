@@ -43,17 +43,19 @@
 
   <!-- ***** Home Page ***** -->
   <section class="home">
-    <div class="spacingHeader"></div>
-      <div class="typewriter">
+    <div class="stars">
+      <div class="typewriter twinkling">
+        <div class="spacingHeader"></div>
         <p><strong>Naren </strong>Yenuganti</p>
+        <div class="social">
+          <a href="mailto:narenry1@berkeley.com" class="fa fa-google"></a>
+          <a href="tel:+16508610749" class="fa fa-phone-square"></a>
+          <a href="https://www.linkedin.com/in/naren-yenuganti-965123161/" class="fa fa-linkedin"></a>
+          <a href="https://github.com/narenyenuganti" class="fa fa-github"></a>
+          <a href="https://open.spotify.com/user/yonaren4?si=Ga4d3Ho7Q2KjLia_uxy1pw" class="fa fa-spotify"></a>
+        </div>
       </div>
-    <div class="social">
-      <a href="mailto:narenry1@berkeley.com" class="fa fa-google"></a>
-      <a href="tel:+16508610749" class="fa fa-phone-square"></a>
-      <a href="https://www.linkedin.com/in/naren-yenuganti-965123161/" class="fa fa-linkedin"></a>
-      <a href="https://github.com/narenyenuganti" class="fa fa-github"></a>
-      <a href="https://open.spotify.com/user/yonaren4?si=Ga4d3Ho7Q2KjLia_uxy1pw" class="fa fa-spotify"></a>
-    </div>
+    </div>    
     <div>
       <a href="#experience" class="down-arrow">
         <img alt="down-arrow" src="img/whiteArrow.png" width="100" height="100">
@@ -64,7 +66,6 @@
 
   <!-- ***** Experience Page ***** -->
   <section id="experience" class="cd-timeline js-cd-timeline">
-    <div class="spacingPage"></div>
     <div class="container max-width-lg cd-timeline__container">
       <div class="cd-timeline__block">
         <div class="cd-timeline__img">
@@ -105,8 +106,8 @@
           <h2 class="tempus">Tempus</h2>
           <p> The project scope includes international expansion, cancer and healthcare
             data analysis, and go-to-market strategy for Tempus. My team and I analyzed healthcare, economic,
-            pharmaceutical, regulatory trends across 8 countries and determine which factors are most important to
-            consider for international expansion to propose viable destinations.</p>
+            pharmaceutical, regulatory trends across 8 countries and determined which factors are most important
+            in order to propose viable destinations for international expansion.</p>
         </div>
       </div>
       <div class="cd-timeline__block">
@@ -133,25 +134,70 @@
       </div>
     </div>
   </section>
-  <script src="main.js"></script>
 
   <!-- ***** Education Page ***** -->
   <section id="education" class="education">
-    Education
-    <div class="row">
-      <div class="column">
-        <div class="card">Education</div>
+    <div class="education-container">
+      <div>
+        <div class="berkeley">
+          <h1><span>University of California: Berkeley</span></h1>
+          <h3><span>Graduation: </span>May 2022</h3>
+          <h3><span>Major: </span>Electrical Engineering & Computer Science</h3>
+          <h3 class="last"><span>Minor: </span>Bioengineering (intended)</h3>
+        </div>
+        <button class="hvr-bubble-float-right tablinks" onclick="openContent(event, 'eecs')" id="defaultOpen">EECS Coursework</button>
+        <button class="hvr-bubble-float-right tablinks" onclick="openContent(event, 'bioe')">BioE Coursework</button>
+        <button class="hvr-bubble-float-right tablinks" onclick="openContent(event, 'skills')">Skills</button>
+        <div class="disclaimer">
+          <p>*Ongoing class</p>
+          <p>**Intended classes to take before Summer 2021</p>
+        </div>
       </div>
-      <div class="column">
-        <div class="card">Skills</div>
-      </div>
+      <ul id="eecs" class="coursework">
+        <li><strong><span>CS 61A:</span></strong> The Structure and Interpretation of Computer Programs</li>
+        <li><strong><span>CS 61B:</span></strong> Data Structures</li>
+        <li><strong><span>CS 61C:</span></strong> Machine Structures</li>
+        <li><strong><span>CS 70:</span></strong> Discrete Math and Probability Theory</li>
+        <li><strong><span>CS 170:</span></strong> Efficient Algorithms and Intractable Problems</li>
+        <li><strong><span>EECS 16A:</span></strong> Designing Information Devices and Systems I</li>
+        <li><strong><span>EECS 16B:</span></strong> Designing Information Devices and Systems II*</li>
+        <li><strong><span>CS 161:</span></strong> Computer Securuity*</li>
+        <li><strong><span>CS 162:</span></strong> Operating Systems and System Programming*</li>
+        <li><strong><span>CS 188:</span></strong> Intro to Artificial Intelligence**</li>
+      </ul>
+      <ul id="bioe" class="coursework">
+        <li><strong><span>BioE 10:</span></strong> Intro to Biomedicine for Engineers</li>
+        <li><strong><span>BioE 26:</span></strong> Intro to Bioengineering</li>
+        <li><strong><span>Chem 1A/L:</span></strong> General Chemistry</li>
+        <li><strong><span>Chem 3A/L:</span></strong> Chemical Structure and Reactivity/Organic Chemistry</li>
+        <li><strong><span>PB HLTH 142:</span></strong> Intro to Probability and Statistics in Biology</li>
+        <li><strong><span>BioE 131:</span></strong> Intro to Computational Molecular and Cell Biology*</li>
+        <li><strong><span>BioE 134:</span></strong> Genetic Design Automation**</li>
+        <li><strong><span>BioE 145:</span></strong> Intro to Machine Learning in Computational Biology**</li>
+        <li><strong><span>CS 176:</span></strong> Algorithms for Computational Biology**</li>
+      </ul>
+      <ul id="skills" class="coursework icons"> 
+        <li class="dev-item">Java</li>
+        <li class="dev-item">Python</li>  
+        <li class="dev-item">C/C++</li> 
+        <li class="dev-item">AdobeXD/Figma</li> 
+        <li class="dev-item">Javascript</li> 
+        <li class="dev-item">Typescript</li> 
+        <li class="dev-item">HTML/CSS</li> 
+        <li class="dev-item">Angular</li> 
+        <li class="dev-item">NoSQL Databases</li> 
+        <li class="dev-item">R</li> 
+        <li class="dev-item">SQL</li> 
+      </ul>
     </div>
   </section>
 
   <!-- ***** Projects Page ***** -->
   <section id="projects" class="projects">
-    Projects
     </div>
   </section>
+
+  <!-- ***** Footer ***** -->
+  <script src="main.js"></script>
 </body>
 </html>

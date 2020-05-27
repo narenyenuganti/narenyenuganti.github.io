@@ -1,15 +1,9 @@
-/* div {
-  border: 1px solid red;
-}
-section {
-  border: 1px solid blue;
-} */
 /* 
 ---------------------------------------------
 preloader
 --------------------------------------------- 
 */
-/* #preloader {
+#preloader {
   overflow: hidden;
   background-color: #000000;
   left: 0;
@@ -80,8 +74,10 @@ preloader
   100% {
     opacity: 0;
   }
-} */
-
+}
+html {
+  scroll-behavior: smooth;
+}
 /* 
 ---------------------------------------------
 header
@@ -111,7 +107,7 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #171717;
+  background: black;
   opacity: 0.9;
   z-index: 2;
 }
@@ -137,9 +133,8 @@ a:hover {
   top: 0;
   width: 100%;
   opacity: 0.9;
-  z-index: 2;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   body {
     overflow-x: hidden;
   }
@@ -186,9 +181,7 @@ a:hover {
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -5px);
 }
-.toggle2 .line1 {
-  background-color: red;
-}
+
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -198,7 +191,63 @@ a:hover {
     opacity: 1;
     transform: translateX(0px);
   }
+}
 
+/* 
+---------------------------------------------
+home page
+--------------------------------------------- 
+*/
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Source Code Pro", monospace;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.spacingHeader {
+  padding-top: 35vh;
+}
+.home {
+  height: 100vh;
+}
+.down-arrow {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  bottom: 0;
+  margin-top: 5vh;
+  display: inline-block;
+}
+.down-arrow .img-top {
+  display: none;
+  position: absolute;
+  left: 0;
+}
+.down-arrow:hover .img-top {
+  display: inline;
+}
+@keyframes move-twinkling-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+.stars,
+.twinkling {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.stars {
+  background: black url(img/stars.png) repeat top center;
+}
+.twinkling {
+  background: transparent url(img/twinkling_effect.png) repeat top center;
+  animation: move-twinkling-back 300s linear infinite;
 }
 div .fa {
   padding: 10px;
@@ -208,7 +257,7 @@ div .fa {
   text-decoration: none;
   border-radius: 50%;
   opacity: 0.7;
-  color: #171717;
+  color: black;
   box-sizing: content-box;
 }
 .social {
@@ -268,7 +317,7 @@ div .fa-spotify {
     }
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .typewriter p {
     border-right: solid 3px rgba(0, 255, 0, 0.75);
     white-space: nowrap;
@@ -311,45 +360,6 @@ div .fa-spotify {
     text-align: center;
   }
 }
-
-/* 
----------------------------------------------
-home page
---------------------------------------------- 
-*/
-body {
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: "Source Code Pro", monospace;
-  margin: 0;
-  padding: 0;
-}
-.spacingHeader {
-  padding-top: 30vh;
-  background-color: #171717;
-}
-.home {
-  background-color: #171717;
-  height: 100vh;
-}
-.down-arrow {
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
-  bottom: 0;
-  margin-top: 5vh;
-  display: inline-block;
-}
-.down-arrow .img-top {
-  display: none;
-  position: absolute;
-  left: 0;
-  z-index: 99;
-}
-.down-arrow:hover .img-top {
-  display: inline;
-}
-
 /* 
 ---------------------------------------------
 experience
@@ -437,8 +447,7 @@ u,
   overflow: hidden;
   padding: 2em 0;
   padding: var(--space-lg) 0;
-  color: black;
-  background-color: grey;
+  background: linear-gradient(180deg, black 0%, rgba(128, 128, 128, 1) 80%);
   font-family: "Montserrat", sans-serif;
 }
 .header img {
@@ -453,12 +462,13 @@ u,
   font-weight: 500;
 }
 .cd-timeline p {
-  font-size: 1.0em;
-} 
+  font-size: 1em;
+}
 .cd-timeline__container {
   position: relative;
   padding: 1.25em 0;
   padding: var(--space-md) 0;
+  margin-top: 30px;
 }
 .cd-timeline__container::before {
   content: "";
@@ -480,7 +490,6 @@ u,
 .cd-timeline__block {
   display: flex;
   position: relative;
-  z-index: 1;
   margin-bottom: 2em;
 }
 .cd-timeline__block:last-child {
@@ -698,56 +707,171 @@ u,
   }
 }
 
-.spacingPage {
-  padding-top: 5vh;
-  background-color: grey;
-}
-.experience {
-  padding-top: 5vh;
-}
-
 /* 
 ---------------------------------------------
 education page
 --------------------------------------------- 
 */
+span {
+  color: #c4820e;
+}
 .education {
-  background-color: burlywood;
+  background-color: #003262;
   height: 100vh;
 }
-.row {
-  box-sizing: border-box;
-  align-content: center;
-  /* padding-top: 40vh; */
+.education-container {
   display: flex;
+}
+.berkeley {
+  width: 45vh;
+  margin-left: 10vh;
+  margin-top: 15vh;
+  color: white;
+  font-size: medium;
+}
+.disclaimer {
+  width: 45vh;
+  margin-left: 10vh;
+  color: white;
+  font-size: medium;
+}
+.coursework {
+  margin-top: 20vh;
+  margin-left: 3vh; 
+  margin-right: 10vh;
+  columns: 2;
+  border: 2px solid;
+  border-color: #c4820e;
+  border-radius: 0.12em;
+  display: none;
+  animation: fadeEffect 1.5s;
+  height: fit-content;
+  break-inside: avoid;
+}
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.active {
+  display: block;
+}
+.coursework > li {
+  color: white;
+  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.coursework > li + li {
+  margin-top: 1rem;
+}
+button {
+  background-color: #c4820e;
+  border: 2px solid;
+  border-color: #3e3e3e;
+  border-radius: 0.12em;
+  display: block;
+  color: white;
+  padding: 15px;
+  margin-left: 10vh;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: medium;
+  width: 200px;
 }
-.row div {
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
+.hvr-bubble-float-right {
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-duration: 0.3s;
+  transition-property: transform;
 }
-.column {
-  float: left;
-  width: 30%;
-  padding: 0 10px;
-}
-.row:after {
+.hvr-bubble-float-right:before {
+  position: absolute;
+  z-index: -1;
+  top: calc(50% - 10px);
+  right: 0;
   content: "";
-  display: table;
-  clear: both;
+  border-style: solid;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #c4820e;
+  transition-duration: 0.3s;
+  transition-property: transform;
 }
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
+.hvr-bubble-float-right:hover,
+.hvr-bubble-float-right:focus,
+.hvr-bubble-float-right:active {
+  transform: translateX(10px);
+  box-shadow: 0 0.5em 0.5em -0.4em #c4820e;
+}
+.hvr-bubble-float-right:hover:before,
+.hvr-bubble-float-right:focus:before,
+.hvr-bubble-float-right:active:before {
+  transform: translateX(10px);
+}
+/* @media only screen and (max-width: 768px) {
+  .dev-item {
+    width: 100px;
+    height: 100px;
+    line-height: 7;
+    margin: 1%;
+  }
+}
+@media only screen and (max-width: 1170px) {
+  .dev-item {
+    width: 80px;
+    height: 80px;
+    font-size: 14px;
+    line-height: 5.5;
+    margin: 5px 5px 5px 0;
+  }
+} */
+/* .dev-item {
+  display: inline-block;
+  background-color: #c4820e;
+  border: 2px solid #ddd5c7;
+  color: white;
+  border-radius: 50%;
   text-align: center;
-  background-color: #f1f1f1;
+  margin: 10px 10px 10px 0;
+  padding: 0;
+  width: 120px;
+  height: 120px;
+  line-height: 8;
+  font-size: 14px;
+} */
+.icons {
+  margin-left: 30vh;
 }
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
+.icons li {
+  color: white;
+  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  break-inside: avoid;
+}
+.icons > li + li {
+  margin-top: 1rem;
+}
+@media screen and (max-width: 950px) {
+  .coursework {
+    columns: 1; 
+    margin-top: 3vh; 
+    margin-left: 3vh; 
+  }
+  .education {
+    height: auto;
+  }
+}
+@media screen and (max-height: 650px) {
+  .education {
+    height: auto;
   }
 }
 
@@ -757,6 +881,10 @@ projects page
 --------------------------------------------- 
 */
 .projects {
-  background-color: lightseagreen;
+  background-color: lightcoral;
+  /* background-color: #DDD5C7;
+  background-image: url(img/website_fog.png);
+  background-size: cover;
+  background-repeat: no-repeat; */
   height: 100vh;
 }

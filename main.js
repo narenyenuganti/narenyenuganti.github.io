@@ -42,33 +42,33 @@ const timeline = () => {
 			}
 		}
 	}
-	
-  var verticalTimelines = document.getElementsByClassName("js-cd-timeline"),
-    verticalTimelinesArray = [],
-    scrolling = false;
-  if (verticalTimelines.length > 0) {
-    for (var i = 0; i < verticalTimelines.length; i++) {
-      (function (i) {
-        verticalTimelinesArray.push(new VerticalTimeline(verticalTimelines[i]));
-      })(i);
-    }
 
-    window.addEventListener("scroll", function (event) {
-      if (!scrolling) {
-        scrolling = true;
-        !window.requestAnimationFrame
-          ? setTimeout(checkTimelineScroll, 250)
-          : window.requestAnimationFrame(checkTimelineScroll);
-      }
-    });
-  }
+	var verticalTimelines = document.getElementsByClassName("js-cd-timeline"),
+		verticalTimelinesArray = [],
+		scrolling = false;
+	if (verticalTimelines.length > 0) {
+		for (var i = 0; i < verticalTimelines.length; i++) {
+			(function (i) {
+				verticalTimelinesArray.push(new VerticalTimeline(verticalTimelines[i]));
+			})(i);
+		}
 
-  function checkTimelineScroll() {
-    verticalTimelinesArray.forEach(function (timeline) {
-      timeline.showBlocks();
-    });
-    scrolling = false;
-  }
+		window.addEventListener("scroll", function (event) {
+			if (!scrolling) {
+				scrolling = true;
+				!window.requestAnimationFrame
+					? setTimeout(checkTimelineScroll, 250)
+					: window.requestAnimationFrame(checkTimelineScroll);
+			}
+		});
+	}
+
+	function checkTimelineScroll() {
+		verticalTimelinesArray.forEach(function (timeline) {
+			timeline.showBlocks();
+		});
+		scrolling = false;
+	}
 };
 
 const navSlide = () => {
@@ -82,17 +82,32 @@ const navSlide = () => {
 			if (link.style.animation) {
 				link.style.animation = '';
 			} else {
-				link.style.animation = `navLinkFade 0.5s ease forwards ${index/5 + 0.5}s`;
+				link.style.animation = `navLinkFade 0.5s ease forwards ${index / 5 + 0.5}s`;
 			}
 		});
 	});
-	burger.addEventListener('hoverover', () => {
-		burger.classList.toggle('toggle2');
-	});
+	// burger.addEventListener('hoverover', () => {
+	// 	burger.classList.toggle('toggle2');
+	// });
 }
 
-const main = () => { 
+const openContent = (evt, content) => {
+  var i, coursework, tablinks;
+  coursework = document.getElementsByClassName("coursework");
+  for (i = 0; i < coursework.length; i++) {
+    coursework[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(content).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+const main = () => {
 	timeline();
 	navSlide();
+	document.getElementById("defaultOpen").click();
 }
 main();
