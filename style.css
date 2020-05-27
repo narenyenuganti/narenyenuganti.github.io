@@ -147,6 +147,7 @@ a:hover {
     transform: translateX(-100%);
     transition: transform 0.5s ease-in;
     position: fixed;
+    z-index: 99;
   }
   .navbar ul {
     margin-top: 0px;
@@ -718,6 +719,7 @@ span {
 .education {
   background-color: #003262;
   height: 100vh;
+  overflow-x: hidden;
 }
 .education-container {
   display: flex;
@@ -813,7 +815,7 @@ button {
 .hvr-bubble-float-right:hover:before,
 .hvr-bubble-float-right:focus:before,
 .hvr-bubble-float-right:active:before {
-  transform: translateX(10px);
+  transform: translateX(8px);
 }
 /* @media only screen and (max-width: 768px) {
   .dev-item {
@@ -859,22 +861,74 @@ button {
 .icons > li + li {
   margin-top: 1rem;
 }
+@media screen and (max-width: 1026px) {
+  .education-container {
+    display: block;
+  }
+  .education {
+    height: auto;
+  }
+  .berkeley {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  button {
+    margin-left: 30px;
+  }
+  .disclaimer {
+    margin-left: 30px;
+  }
+  .coursework {
+    margin-left: 30px; 
+    margin-top: 10px;
+  }
+}
 @media screen and (max-width: 950px) {
   .coursework {
     columns: 1; 
     margin-top: 3vh; 
     margin-left: 3vh; 
   }
-  .education {
-    height: auto;
+}
+@media screen and (max-width: 420px) {
+  .coursework > li {
+    color: white;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .coursework > li + li {
+    margin-top: 0rem;;
+  }
+  .berkeley {
+    margin-top: 50px;
+    margin-left: 1vh;
   }
 }
-@media screen and (max-height: 650px) {
-  .education {
-    height: auto;
+@media screen and (max-width: 350px) {
+  .coursework > li {
+    color: white;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .coursework > li + li {
+    margin-top: 0rem;;
+  }
+  .berkeley {
+    margin-top: 50px;
+    margin-left: 0vh;
+  }
+  h1 {
+    font-size: 100%;
+  }
+  h3 {
+    font-size: 100%;
+  }
+  p {
+    font-size: 60%;
   }
 }
-
 /* 
 ---------------------------------------------
 projects page
