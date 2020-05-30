@@ -110,6 +110,7 @@ a:hover {
   background: black;
   opacity: 0.9;
   z-index: 2;
+  font-family: "Source Code Pro", monospace;
 }
 .navbar nav {
   margin-top: 20px;
@@ -201,7 +202,8 @@ home page
 body {
   background-position: center;
   background-repeat: no-repeat;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Montserrat", sans-serif;
+
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -260,6 +262,12 @@ div .fa {
   color: black;
   box-sizing: content-box;
 }
+.fa {
+  margin-right: 5px;
+}
+.fa:last-child {
+  margin-right: 0px;
+}
 .social {
   margin-top: 50px;
   text-align: center;
@@ -292,6 +300,8 @@ div .fa-external-link {
   color: white;
   margin: 0 auto;
   text-align: center;
+  font-family: "Source Code Pro", monospace;
+
 }
 @media screen and (min-width: 888px) {
   .typewriter p {
